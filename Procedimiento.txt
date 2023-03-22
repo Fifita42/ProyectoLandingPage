@@ -1,0 +1,30 @@
+La primera vez que inicias la consola de git a traves de git bash here
+escribir:
+git config --global user.name "nombreejemplodegithub"
+git config --global user.email "emailejemplodegithub"
+
+
+clonar repositorio
+git clone "enlacesincomillasderepositorio"
+abrir el git bash here denuevi dentro de la carpeta que se genera
+
+//establecer donde enviar cambios solo si aparece "maestro" en lugar de "main" en el texto celeste
+git branch -M main
+
+crear archivos para luego
+comprobar confirmado/noconfirmado
+git status
+
+
+git add <filename> o git add .
+
+ luego para confirmar:
+git commit -m "mensaje"
+
+subir:
+git push origin main
+
+
+
+para descargar ultimos cambios en el repositorio
+git pull
