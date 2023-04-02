@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: rgba(255, 255, 255, .1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 255, 255, .2);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+  transition: .5s;
+}
+
+.header:hover::before {
+  left: 100%;
+}
+
+.header .logo {
+  font-size: 1.7rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav a {
+  position: relative;
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: .5s;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.inicio {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url(fondo2.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px 0;
+}
+
+.inicio .contenido  {
+  max-width: 600px;
+  color: #fff;
+}
+
+.contenido h2 {
+  font-size: 3rem;
+  letter-spacing: .03rem;
+}
+
+.contenido p {
+  margin: 10px 0 40px;
+}
+
+.contenido a {
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  font-weight: 500;
+  padding: 10px 40px;
+  transition: .5s;
+}
+
+.contenido a:hover {
+  background: #1e0b04;
+}
+
+.inicio .menu-login {
+  position: relative;
+  width: 440px;
+}
+
+.menu-login h2 {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+
+}
+
+.menu-login .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 40px 0;
+
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  border-radius: 40px;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0 25px 0 45px;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #fff;
+  pointer-events: none;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+  font-size: .8rem;
+  top: -14px;
+  left: 17px;
+  transition: .5s;
+}
+
+.input-box .icono {
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.menu-login .remember-forgot {
+  font-size: .9rem;
+  color: #fff;
+  font-weight: 500;
+  margin: -25px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #1e0b04;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #fff;
+  text-decoration: none;
+
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.menu-login .btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.menu-login .register-link {
+  font-size: .9rem;
+  color: #fff;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.register-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
+}
+
+
+/*
+#formulario-contacto {
+  margin: 20px auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+}
+
+#formulario-contacto label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#formulario-contacto input[type="text"],
+#formulario-contacto input[type="email"],
+#formulario-contacto textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+}
+
+#formulario-contacto input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#formulario-contacto input[type="submit"]:hover {
+  background-color: #555;
+}
