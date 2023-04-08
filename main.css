@@ -11,11 +11,8 @@ body{
   background-position: center;
 }
 .header {
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 100px; */
+  position:fixed;/*Cambios aqui*/
+  width:100vw;/*Aqui tambien*/
   background: rgba(255, 255, 255, .1);
   display: flex;
   justify-content: space-between;
@@ -81,7 +78,7 @@ body{
 }
 
 .inicio .contenido  {
-  max-width: 600px;
+  max-width: 560px;/*Realze cambio aqui*/
   color: #fff;
 }
 
@@ -114,6 +111,7 @@ body{
 }
 
 .menu-login h2 {
+  margin-top: 100px;
   font-size: 2rem;
   color: #fff;
   text-align: center;
