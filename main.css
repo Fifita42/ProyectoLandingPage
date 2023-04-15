@@ -5,14 +5,16 @@
   font-family: "poppins", sans-serif;
 }
 
+/* Background */
 body{
   background: url(fondo2.png) no-repeat;
   background-size: cover;
   background-position: center;
 }
+/* Contenedor del nav */
 .header {
-  position:fixed;/*Cambios aqui*/
-  width:100vw;/*Aqui tambien*/
+  position:fixed;
+  width:100vw;
   background: rgba(255, 255, 255, .1);
   display: flex;
   justify-content: space-between;
@@ -21,7 +23,7 @@ body{
   backdrop-filter: blur(10px);
   border-bottom: 2px solid rgba(255, 255, 255, .2);
 }
-
+/* Efecto de reflexion para el nav */
 .header::before {
   content: '';
   position: absolute;
@@ -32,16 +34,18 @@ body{
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
   transition: .5s;
 }
-
+/* parte del efecto */
 .header:hover::before {
   left: 100%;
 }
 
+/* logo del nav */
 .header .logo {
   font-size: 1.7rem;
   color: #fff;
   text-decoration: none;
 }
+/* links del nav */
 .nav a {
   position: relative;
   font-size: 1.1rem;
@@ -50,11 +54,12 @@ body{
   margin-left: 40px;
 }
 
+/* efecto de subrayo de los links */
 .nav a::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -1px;
   width: 100%;
   height: 3px;
   background: #fff;
@@ -63,10 +68,12 @@ body{
   transition: .5s;
 }
 
+/* parte de los efectos */
 .nav a:hover::after {
   transform: scaleX(1);
 }
 
+/* Contenedor principal para texto introductorio y forms */
 .inicio {
   position: relative;
   width: 100%;
@@ -77,22 +84,29 @@ body{
   padding: 80px 100px 0;
 }
 
+/* Texto introductorio */
 .inicio .contenido  {
-  max-width: 560px;/*Realze cambio aqui*/
+  max-width: 560px;
   color: #fff;
+  margin-bottom: 30px;
 }
 
+/* Titulo de la pagina */
 .contenido h2 {
   font-size: 3rem;
   letter-spacing: .03rem;
 }
 
+/* Margin del texto introductorio */
 .contenido p {
   margin: 10px 0 40px;
 }
 
-.contenido a {
+/* Estilo del boton del texto introductorio */
+.contenido a{
   color: #fff;
+  background:linear-gradient(90deg, transparent, rgba(90, 87, 87, 0.4), transparent);
+  box-shadow: 0 8px 10px rgba(56, 52, 52, 0.5);
   text-decoration: none;
   border: 2px solid #fff;
   border-radius: 40px;
@@ -101,123 +115,221 @@ body{
   transition: .5s;
 }
 
+/* Parte del estilo del boton */
 .contenido a:hover {
   background: #1e0b04;
 }
 
-.inicio .menu-login {
+
+/* Contenedor de forms */
+.wrapper {
   position: relative;
-  width: 440px;
+  width: 400px;
+  height: 440px;
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.637);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform .5s ease, height .2s ease;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5)
 }
 
-.menu-login h2 {
-  margin-top: 100px;
-  font-size: 2rem;
+/* Mostrar el contenedor */
+.wrapper.active-popup {
+  transform: scale(1);
+}
+
+/* .active se agrega al mostrar el register */
+.wrapper.active {
+  height: 520px;
+}
+
+/* form-box son el register y login */
+.wrapper .form-box {
+  width: 100%;
+  padding: 40px;
+}
+/* ocultar el form login al inicio */
+.wrapper .form-box.login {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+/* ocultar el login al elegir register y mostrar el register*/
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+/* colocar el register a la derecha del login */
+.wrapper .form-box.register {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+/* devolver el register a su poscicion permitiendo que se vea */
+.wrapper.active .form-box.register {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+/* icono X del contenedor de formularios */
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background: #162938;/*Cambiar el fondo*/
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+  color: #fff  
+}
+
+/* titulos de los form */
+.form-box h2 {
+  font-size: 2em;
   color: #fff;
   text-align: center;
-
 }
 
-.menu-login .input-box {
+/* contenedores de los inputs */
+.input-box {
   position: relative;
   width: 100%;
   height: 50px;
-  margin: 40px 0;
-
+  border-bottom: 2px solid #162938;/*cambiar*/
+  margin: 30px 0;
 }
 
-.input-box input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: 1px solid #fff;
-  outline: none;
-  border-radius: 40px;
-  font-size: 1rem;
-  color: #fff;
-  padding: 0 25px 0 45px;
-}
-
+/* label de los input */
 .input-box label {
-  position: absolute;
-  top: 50%;
-  left: 45px;
-  transform: translateY(-50%);
-  font-size: 1rem;
-  color: #fff;
-  pointer-events: none;
+position: absolute;
+top: 50%;
+left: 45px;
+transform: translateY(-50%);  
+font-size: 1em;
+color: #fff;
+font-weight: 500;
+pointer-events: none;
+transition: .5s;
 }
 
+/* Levantar el label al escribir */
 .input-box input:focus~label,
 .input-box input:valid~label {
   font-size: .8rem;
   top: -14px;
-  left: 17px;
-  transition: .5s;
+  left: 4px;
 }
 
-.input-box .icono {
-  position: absolute;
-  top: 14px;
-  left: 15px;
-  font-size: 1.2rem;
+/* estilos de los inputs de los forms */
+.input-box input {
+  width: auto;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+/* estilos de los iconos dentro de los inputs */
+.input-box .icon {
+  position: relative;
+  font-size: 1.2em;
   color: #fff;
 }
 
-.menu-login .remember-forgot {
-  font-size: .9rem;
-  color: #fff;
+/* es el contenedor de "recuerdame" y "Olvidaste tu contraseña?"*/
+.remember-forgot {
+  font-size: .9em;
+  color: #000000;/*cambiar*/
   font-weight: 500;
-  margin: -25px 0 15px;
+  margin: -15px 0 15px;
   display: flex;
   justify-content: space-between;
 }
 
+/* estilos para el checkbox */
 .remember-forgot label input {
-  accent-color: #1e0b04;
+  accent-color: #1e0b04;/*cambiar*/
   margin-right: 3px;
 }
 
+/* estilos del contenedor mostrado arriba */
 .remember-forgot a {
-  color: #fff;
+  color: #000000;/*cambiar*/
   text-decoration: none;
-
 }
 
+/* mostrar un subrayado en el link de olvidaste tu contraseña */
 .remember-forgot a:hover {
   text-decoration: underline;
 }
 
-.menu-login .btn {
+/* boron de los forms */
+.btn {
   width: 100%;
-  height: 50px;
+  height: 45px;
+  background:linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);/*cambiar*/
+  box-shadow: 0 8px 10px rgba(0, 0, 0, .5);
   border: none;
   outline: none;
-  border-radius: 40px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
-  box-shadow: 0 8px 10px rgba(0, 0, 0, .5);
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1em;
   color: #fff;
   font-weight: 500;
 }
 
-.menu-login .register-link {
-  font-size: .9rem;
-  color: #fff;
+/* Texto "No tenes una cuenta? registrarse/ingresar" */
+.login-register {
+  font-size: .9em;
+  color: #000000;/*cambiar*/
   text-align: center;
-  margin: 30px 0;
+  font-weight: 500;
+  margin: 25px 0 10px;
 }
 
-.register-link p a {
-  color: #fff;
+/* registrarse/ingresar */
+.login-register p a {
+  color: #000000;/*cambiar*/
   text-decoration: none;
   font-weight: 600;
 }
 
-.register-link p a:hover {
+/* estilos de registrarse/ingresar al realizar hover */
+.login-register p a:hover {
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

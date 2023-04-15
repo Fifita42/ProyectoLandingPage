@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg header">
         <div class="container-fluid nav">
 
@@ -26,49 +26,97 @@
             <i class="bi bi-grid text-light"></i>
           </button>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" style="margin-right: 30px;">
-                <div class="navbar-nav">
-                    <a class="navbar-link" href="#">Inicio</a>
-                    <a class="navbar-link" href="#">Acerca de</a>
-                    <a class="navbar-link" href="#">Menu</a>
-                    <a class="navbar-link" href="#">Reseñas</a>
-                    <a class="navbar-link" href="#">Contacto</a>
-                </div>
+            <div class="collapse navbar-collapse justify-content-start justify-content-md-end" id="navbarNavAltMarkup" style="margin-right: 30px;">
+                <a class="navbar-link" href="#">Inicio</a>
+                <br>
+                <a class="navbar-link" href="#">Acerca de</a>
+                <br>
+                <a class="navbar-link" href="#">Menu</a>
+                <br>
+                <a class="navbar-link" href="#">Reseñas</a>
+                <br>
+                <a class="navbar-link" href="#">Contacto</a>
             </div>
         </div>
     </nav>
 
+    <!-- Contenedor de Texto introductorio y formularios -->
     <section class="inicio d-flex flex-wrap text-center text-xl-start">
+        <!-- Texto introductorio -->
         <div class="contenido mx-auto mx-xl-0">
             <h2>La ropa construye tu imagen</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa qui optio minima, magni exercitationem non est natus. Nemo voluptatum sunt nam, molestias officia ratione explicabo sequi accusamus doloribus, natus quos!</p>
-            <a href="#">Empezar</a>
+            <a href="#" class="btnLogin-popup">Empezar</a>
         </div>
 
-        <div class="menu-login text-align-center mx-auto mx-xl-0">
-            <h2>Iniciar sesion</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icono"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" required>
-                    <label>Introduce tu email</label>
+        <!-- Contenedor de los formularios -->
+        <div class="wrapper mx-auto mx-xl-0">
+            <!-- boton de cerrar el formulario -->
+            <span class="icon-close">
+                <i class="bi bi-x-lg"></i>
+            </span>
+    
+            <!-- login -->
+            <div class="form-box login">
+                <h2>Ingresar</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                         <input type="email" required>
+                         <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" required>
+                        <label>Contraseña</label>
+                    </div>
+                   <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox">Recuerdame
+                        </label>
+                        <a href="#">Olvidaste tu contraseña?</a>
+                   </div>
+                   <button type="submit" class="btn">Ingresar</button>
+                   <div class="login-register">
+                        <p>No tienes una cuenta?<a href="#" class="register-link"> Registrarse</a></p>
+                   </div>
+                </form>
+            </div>
+
+            <!-- register -->
+            <div class="form-box register">
+                <h2>Registración</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" required>
+                        <label>Nombre de Usuario</label>
+                   </div>
+                    <div class="input-box">
+                         <span class="icon"><span class="icon"><i class="fa-solid fa-envelope"></i></span></span>
+                         <input type="email" required>
+                         <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+
+                        <input type="password" required>
+                        <label>Contraseña</label>
+                    </div>
+                   <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox">Acepto los términos y condiciónes</label>
+                        
+                   </div>
+                   <button type="submit" class="btn">Registrarse</button>
+                   <div class="login-register">
+                    <p>Ya tienes una cuenta?<a href="#" class="login-link"> Ingresar</a></p>
+                   </div>
+                </form>
                 </div>
-                <div class="input-box">
-                    <span class="icono"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" required>
-                    <label>Introduce tu contraseña</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Recuerdame</label>
-                    <a href="#">Olvidaste la contraseña?</a>
-                </div>
-                <button type="submit" class="btn">Iniciar sesion</button>
-                <div class="register-link">
-                    <p>No estas registrado?<a href="#"> Registrarse ahora</a>
-                    </p>
-                </div>
-            </form> 
+            </div>
         </div>
+
     </section>   
 
 
