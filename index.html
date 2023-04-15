@@ -14,8 +14,29 @@
     <title>Document</title>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg header">
-    <div class="container-fluid nav">
+        <div class="container-fluid nav">
+
+            <a href="#" class="logo">
+                <i class="fa-solid fa-shirt">Ropa</i>
+            </a>  
+
+          <button class="navbar-toggler border borderbs-light rounded-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-grid text-light"></i>
+          </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" style="margin-right: 30px;">
+                <div class="navbar-nav">
+                    <a class="navbar-link" href="#">Inicio</a>
+                    <a class="navbar-link" href="#">Acerca de</a>
+                    <a class="navbar-link" href="#">Menu</a>
+                    <a class="navbar-link" href="#">Reseñas</a>
+                    <a class="navbar-link" href="#">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <section class="inicio d-flex flex-wrap text-center text-xl-start">
         <div class="contenido mx-auto mx-xl-0">
@@ -24,94 +45,34 @@
             <a href="#">Empezar</a>
         </div>
 
-    <header>
-        <a href="#" class="logo">
-            <i class="fa-solid fa-shirt">Ropa</i>
-        <nav class="navigation">
-            <a href="#">Inicio</a>
-            <a href="#">Acerca de</a>
-            <a href="#">Menu</a>
-            <a href="#">Contacto</a>
-            <button class="btnLogin-popup">Ingresar</button>
-        </nav>
-    </header>
-
-    <div class="wrapper">
-        <span class="icon-close">
-            <ion-icon name="close-outline"></ion-icon>
-        </span>
-
-        <div class="form-box login">
-            <h2>Ingresar</h2>
+        <div class="menu-login text-align-center mx-auto mx-xl-0">
+            <h2>Iniciar sesion</h2>
             <form action="#">
                 <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="mail-outline"></ion-icon>
-                    </span>
-                     <input type="email" required>
-                     <label>Email</label>
+                    <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" required>
+                    <label>Introduce tu email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="icono"><i class="fa-solid fa-lock"></i></span>
                     <input type="password" required>
-                    <label>Contraseña</label>
+                    <label>Introduce tu contraseña</label>
                 </div>
-               <div class="remember-forgot">
-                    <label>
-                        <input type="checkbox">Recuerdame
-                    </label>
-                    <a href="#">Olvidaste tu contraseña?</a>
-               </div>
-               <button type="submit" class="btn">Ingresar</button>
-               <div class="login-register">
-                    <p>No tienes una cuenta?<a href="#" class="register-link"> Registrarse</a></p>
-               </div>
-            </form>
-            
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Recuerdame</label>
+                    <a href="#">Olvidaste la contraseña?</a>
+                </div>
+                <button type="submit" class="btn">Iniciar sesion</button>
+                <div class="register-link">
+                    <p>No estas registrado?<a href="#"> Registrarse ahora</a>
+                    </p>
+                </div>
+            </form> 
         </div>
-        
-        <div class="form-box register">
-            <h2>Registración</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon">
-                       <ion-icon name="person-outline"></ion-icon>
-                   </span>
-                    <input type="text" required>
-                    <label>Nombre de Usuario</label>
-               </div>
-                <div class="input-box">
-                     <span class="icon">
-                        <ion-icon name="mail-outline"></ion-icon>
-                    </span>
-                     <input type="email" required>
-                     <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <input type="password" required>
-                    <label>Contraseña</label>
-                </div>
-               <div class="remember-forgot">
-                <label>
-                    <input type="checkbox">Acepto los términos y condiciónes</label>
-                    
-               </div>
-               <button type="submit" class="btn">Registrarse</button>
-               <div class="login-register">
-                <p>Ya tienes una cuenta?<a href="#" class="login-link"> Ingresar</a></p>
-               </div>
-            </form>
-            </div>
-        </div>
-
-    </div>
+    </section>   
 
 
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html>
