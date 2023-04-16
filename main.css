@@ -142,7 +142,9 @@ body{
   overflow: hidden;
   transform: scale(0);
   transition: transform .5s ease, height .2s ease;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .5)
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  user-select: none;
+
 }
 
 /* Mostrar el contenedor */
@@ -291,10 +293,12 @@ transition: .5s;
 }
 
 /* estilos de los iconos dentro de los inputs */
-.input-box .icon {
+.input-box .icon , span{
   position: relative;
   font-size: 1.2em;
   color: #fff;
+  user-select: none;
+
 }
 
 /* es el contenedor de "recuerdame" y "Olvidaste tu contraseña?"*/
