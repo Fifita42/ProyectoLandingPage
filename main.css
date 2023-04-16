@@ -239,7 +239,7 @@ body{
   border-bottom-left-radius: 20px;
   cursor: pointer;
   z-index: 1;
-  color: #fff  
+  color: #fff
 }
 
 /* titulos de los form */
@@ -298,7 +298,6 @@ transition: .5s;
   font-size: 1.2em;
   color: #fff;
   user-select: none;
-
 }
 
 /* es el contenedor de "recuerdame" y "Olvidaste tu contraseña?"*/
@@ -353,14 +352,14 @@ transition: .5s;
 }
 
 /* registrarse/ingresar */
-.login-register p a {
+.login-register p span {
   color: #000000;/*cambiar*/
   text-decoration: none;
   font-weight: 600;
 }
 
 /* estilos de registrarse/ingresar al realizar hover */
-.login-register p a:hover {
+.login-register p span:hover {
   text-decoration: underline;
 }
 
