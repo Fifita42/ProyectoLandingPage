@@ -1,9 +1,8 @@
 $(document).ready(function(){
-    const wrapper = document.querySelector('.wrapper');
-    const btnPopup = document.querySelectorAll('.btnLogin-popup');
-    const iconClose = document.querySelector('.icon-close')
-    const contenido = document.querySelector('.contenido');
-    
+    const wrapper = '.wrapper';
+    const btnPopup = '.btnLogin-popup';
+    const iconClose = '.icon-close';
+    const contenido = '.contenido';
     
     $('.login-register p span').click(()=> {
         $(wrapper).toggleClass('active');
@@ -11,13 +10,16 @@ $(document).ready(function(){
 
     $(btnPopup).click(()=> {
         $(wrapper).toggleClass('active-popup');
+        $(wrapper).removeClass('active');
         $(contenido).toggleClass('active');
+        $('.inicio').toggleClass('active');
     });
     
     $(iconClose).click(()=> {
         $(wrapper).removeClass('active-popup');
+        $(wrapper).removeClass('active');
         $(contenido).removeClass('active');
+        $('.inicio').removeClass('active');
         $('input').val(null);
-    
     });
 });
