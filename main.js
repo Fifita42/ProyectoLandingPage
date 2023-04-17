@@ -4,6 +4,7 @@ $(document).ready(function(){
     const iconClose = '.icon-close';
     const contenido = '.contenido';
     const contacto = '.llamar';
+    const $textarea = $('#message');
 
     $('.login-register p span').click(()=> {
         $(wrapper).toggleClass('active');
@@ -29,7 +30,14 @@ $(document).ready(function(){
     $(contacto).click(()=> {
         $(wrapper).addClass('active-popup');
         $(wrapper).toggleClass('contacto');
+        $(wrapper).removeClass('active');
         $(contenido).addClass('active');
+    });
+
+    var textarea = document.getElementById("message");
+    textarea.addEventListener("input", function() {
+      this.style.height = "auto";
+      this.style.height = this.scrollHeight + "px";
     });
 
 

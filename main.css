@@ -33,10 +33,10 @@ body{
 
 /* Contenedor del nav */
 .header {
-  position:sticky;
+  position:fixed;
   top: 0;
   width:100%;
-  background: rgba(136, 128, 128, 0.4);
+  background-color: rgba(7, 1, 1, 0.438);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,7 +99,8 @@ main{
   position: relative;
   z-index: 10;
   padding: 100px 10px;
-  backdrop-filter: blur(8px);
+  background: rgba(17, 17, 17, 0.1);
+  backdrop-filter: blur(10px);
 }
 /* Contenedor principal para texto introductorio y forms */
 .inicio {
@@ -182,7 +183,7 @@ main{
   height: 520px;
 }
 .wrapper.contacto {
-  height: 700px;
+  height: 600px;
 }
 
 /* pantalla grande */
@@ -331,6 +332,28 @@ transition: .5s;
   padding: 0 35px 0 5px;
 }
 
+
+.input-boxTxT {
+  min-height: 1rem;
+  position: relative;
+  width: 100%;
+  border-bottom: 2px solid #162938;
+  margin: 30px 0;
+}
+.input-boxTxT #message{
+  height: auto;
+  max-height: 100px;
+  width: 100%;
+  resize: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  padding: 0 35px 0 5px;
+}
+
 /* estilos de los iconos dentro de los inputs */
 .input-box .icon , span{
   position: relative;
@@ -418,7 +441,7 @@ transition: .5s;
 .contenedor-footer .grupo-1 {
   display: flex;
   justify-content: space-around;
-  padding: 45px 0px;
+  padding: 45px 15px;
   grid-template-columns: repeat(3, ifr);
   grid-gap: 50px;
 }
