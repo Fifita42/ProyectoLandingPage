@@ -9,6 +9,9 @@ body{
   position: relative;
   height: 100%;
 }
+p,h2{
+  user-select: none;
+}
 /* Contenedor de los contenedores de los contenedores de background */
 .carousel{
   position: absolute;
@@ -16,17 +19,15 @@ body{
   width: 100%;
 }
 /* contenedor de contenedor de background */
-.carousel-inner{
+.carousel-inner, .carousel-item,.carousel-item img{
   height: 100%;
 }
 /* Contenedor de background */
 .carousel-item{
   transition: transform 2s ease, opacity .5s ease-out;
-  height: 100%;
 }
 /* Background */
 .carousel-item img{
-  height: 100%;
   width: 100%;
   object-fit: cover;
 }
@@ -104,9 +105,9 @@ main{
 }
 /* Contenedor principal para texto introductorio y forms */
 .inicio {
+  display: flex;
   position: relative;
   z-index: 20;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -219,7 +220,6 @@ main{
   .contenido{
     width: 70%;
     object-fit: contain;
-    /* max-height: 100vh; */
     position: relative;
   }
   .contenido.active,.contenido.contacto{
@@ -252,16 +252,20 @@ main{
 }
 
 /* colocar el register a la derecha del login */
-.wrapper .form-box.register,  .wrapper .form-box.contacto{
+.wrapper .form-box.register,  .wrapper .form-box.contacto, .wrapper .form-box.resumen{
   position: absolute;
   transition: none;
   transform: translateX(400px);
 }
 
 /* devolver el register a su poscicion permitiendo que se vea */
-.wrapper.active .form-box.register, .wrapper.contacto .form-box.contacto{
+.wrapper.active .form-box.register, .wrapper.contacto .form-box.contacto, .wrapper.resumen .form-box.resumen{
   transition: transform .18s ease;
   transform: translateX(0);
+}
+.wrapper.resumen .form-box.contacto{
+  transition: transform .18s ease;
+  transform: translateX(-400px);
 }
 
 /* icono X del contenedor de formularios */
@@ -313,7 +317,8 @@ transition: .5s;
 
 /* Levantar el label al escribir */
 .input-box input:focus~label,
-.input-box input:valid~label {
+.input-box input:valid~label,
+.form-box.resumen label{
   font-size: .8rem;
   top: -14px;
   left: 4px;
@@ -321,7 +326,7 @@ transition: .5s;
 
 /* estilos de los inputs de los forms */
 .input-box input {
-  width: auto;
+  width: 90%;
   height: 100%;
   background: transparent;
   border: none;
@@ -340,7 +345,7 @@ transition: .5s;
   border-bottom: 2px solid #162938;
   margin: 30px 0;
 }
-.input-boxTxT #message{
+#message, .input-boxTxT #messageR{
   height: auto;
   max-height: 100px;
   width: 100%;

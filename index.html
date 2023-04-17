@@ -141,7 +141,7 @@
                 <!-- Contacto -->
                 <div class="form-box contacto">
                     <h2>Contacto</h2>
-                    <form action="#" class="submitMessage">
+                    <form action="#">
                         <div class="input-box">
                             <span class="icon"><i class="bi bi-person-fill"></i></span>
                             <input type="text" name="name" id="name" required>     
@@ -160,9 +160,36 @@
                         <div class="input-boxTxT">
                             <textarea name="message" id="message"  rows="1"></textarea>
                         </div>
+                       <button type="button" class="btn btnContacto">Listo</button>
+                   </form>
+                </div>
+
+                <!-- Resumen -->
+                <div class="form-box resumen">
+                    <h2>Resumen</h2>
+                    <form action="#" class="submitMessage">
+                        <div class="input-box">
+                            <span class="icon"><i class="bi bi-person-fill"></i></span>
+                            <input type="text" name="name" id="nameR" disabled>     
+                            <label for="name">Nombre</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class="bi bi-telephone-fill"></i></span>
+                            <input type="tel" name="phone" id="phoneR" disabled>
+                            <label for="phone">Teléfono</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                            <input type="email" name="email" id="emailR" disabled>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-boxTxT">
+                            <textarea name="message" id="messageR"  rows="1" disabled></textarea>
+                        </div>
                        <button type="submit" class="btn">Enviar</button>
                    </form>
                 </div>
+
             </div>
         </section>
     </main>
