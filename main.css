@@ -477,11 +477,7 @@ transition: .5s;
 
 
 
-
-
-
-
-/*
+/* (No lo usé)
 #formulario-contacto {
   margin: 20px auto;
   max-width: 600px;
@@ -528,3 +524,4 @@ transition: .5s;
 #formulario-contacto input[type="submit"]:hover {
   background-color: #555;
 }
+/*
