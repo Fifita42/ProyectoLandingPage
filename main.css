@@ -6,39 +6,39 @@
   font-size: 1em;
 }
 
-/* Background */
 body{
-  background: url(fondo2.png) no-repeat;
-  background-size: cover;
-  background-position: center;
   height: auto;
+}
 
-}
+/* Contenedor de los contenedores de background */
 .carousel{
-position: absolute;
-width: 100vw;
-height: 100vh;
+  position: absolute;
+  width: 100%;
+  /* height: 100vh; */
 }
+/* Contenedor de background */
 .carousel-item{
   transition: transform 2s ease, opacity .5s ease-out;
 }
+/* Background */
 .carousel-item img{
-  height: 100vh;
-  width: 100vw;
+  height: 110vh;
+  width: 100%;
   object-fit: cover;
 }
+
 /* Contenedor del nav */
 .header {
-  position:fixed;
-  top: 0;/*cambios aqui*/
+  position:sticky;
+  top: 0;
   width:100%;
-  background: rgba(255, 255, 255, .1);
+  background: rgba(136, 128, 128, 0.4);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 99;
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(50px);
+  border-bottom: 2px solid rgba(165, 160, 160, 0.2);
 }
 /* Efecto de reflexion para el nav */
 .header::before {
@@ -89,17 +89,19 @@ height: 100vh;
 .nav a:hover::after {
   transform: scaleX(1);
 }
-
+main{
+  height: 100vh;
+  backdrop-filter: blur(8px);
+}
 /* Contenedor principal para texto introductorio y forms */
 .inicio {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-
   width: 100%;
-  height: 100vh;
+  min-height: 100%;
   transition: height .2s ease;
 }
 
@@ -117,19 +119,22 @@ height: 100vh;
 
 /* Titulo de la pagina */
 .contenido h2 {
-  font-size: 2rem;
+  font-size:200%;
   letter-spacing: .03rem;
+  font-weight: bold;
 }
 
 /* Margin del texto introductorio */
 .contenido p {
+  font-size: 100%;
   margin: 10px 0 40px;
+  color:#fff;
 }
 
 /* Estilo del boton del texto introductorio */
 .contenido a{
   color: #fff;
-  background:linear-gradient(90deg, transparent, rgba(90, 87, 87, 0.4), transparent);
+  background: rgba(129, 118, 118, 0.4);
   box-shadow: 0 8px 10px rgba(56, 52, 52, 0.5);
   text-decoration: none;
   border: 2px solid #fff;
@@ -170,6 +175,9 @@ height: 100vh;
 
 /* pantalla grande */
 @media (min-width: 1215px){
+  main{
+    overflow: hidden;
+  }
   .inicio {
     flex-direction: row;
   }
@@ -187,7 +195,6 @@ height: 100vh;
   .wrapper.active-popup {
     transform: scaleX(1) translateX(100%);
   }
-  
 }
 /* pantalla chica */
 @media (max-width: 1214px) {
@@ -195,7 +202,6 @@ height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin-top: 10%; */
   }
   .contenido{
     width: 70%;
