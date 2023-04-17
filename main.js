@@ -48,7 +48,8 @@ $(document).ready(function(){
         event.preventDefault();
         const phone =  document.getElementById('phone').value.trim();
         const message = document.getElementById('message').value.trim();
-
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
 
         if (phone === '') {
         alert('Por favor, ingrese su teléfono');
@@ -66,12 +67,18 @@ $(document).ready(function(){
         }
         else
         {
-        form.submit();
+        // form.submit();
+        console.log('Datos ingresados:');
+        console.log(`Nombre: ${name}`);
+        console.log(`Teléfono: ${phone}`);
+        console.log(`Email: ${email}`);
+        console.log(`Mensaje: ${message}`);
         }
         function isValidPhone(phone) {
         const re = /^\d{10}$/;
         return re.test(phone);
-        }
+       
+    }
     });
 
 });
