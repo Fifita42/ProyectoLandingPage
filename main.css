@@ -5,18 +5,28 @@
   font-family: "poppins", sans-serif;
   font-size: 1em;
 }
-/* Contenedor de los contenedores de background */
+body{
+  position: relative;
+  height: 100%;
+}
+/* Contenedor de los contenedores de los contenedores de background */
 .carousel{
   position: absolute;
+  height:inherit;
   width: 100%;
+}
+/* contenedor de contenedor de background */
+.carousel-inner{
+  height: 100%;
 }
 /* Contenedor de background */
 .carousel-item{
   transition: transform 2s ease, opacity .5s ease-out;
+  height: 100%;
 }
 /* Background */
 .carousel-item img{
-  height: 95vh;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
@@ -84,11 +94,11 @@
   transform: scaleX(1);
 }
 main{
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 10;
-  min-height: auto;
-  height: 80vh;
+  padding: 100px 10px;
   backdrop-filter: blur(8px);
 }
 /* Contenedor principal para texto introductorio y forms */
@@ -171,6 +181,9 @@ main{
 .wrapper.active {
   height: 520px;
 }
+.wrapper.contacto {
+  height: 700px;
+}
 
 /* pantalla grande */
 @media (min-width: 1215px){
@@ -183,7 +196,7 @@ main{
   .contenido{
     position: absolute;
   }
-  .contenido.active{
+  .contenido.active,.contenido.contacto{
     transform: translateX(-40%);
   }
   .wrapper{
@@ -204,19 +217,21 @@ main{
   }
   .contenido{
     width: 70%;
-    position: absolute;
+    object-fit: contain;
+    /* max-height: 100vh; */
+    position: relative;
   }
-  .contenido.active{
+  .contenido.active,.contenido.contacto{
     transform: translateY(-150vh);
   }
   .wrapper{
+    position: absolute;
     transform: scaleY(0);
   }
   .wrapper.active-popup{
     transform: scaleY(1);
   }
 }
-
 
 /* form-box son el register y login */
 .wrapper .form-box {
@@ -230,20 +245,20 @@ main{
 }
 
 /* ocultar el login al elegir register y mostrar el register*/
-.wrapper.active .form-box.login {
+.wrapper.active .form-box.login, .wrapper.contacto .form-box.login{
   transition: none;
   transform: translateX(-400px);
 }
 
 /* colocar el register a la derecha del login */
-.wrapper .form-box.register {
+.wrapper .form-box.register,  .wrapper .form-box.contacto{
   position: absolute;
   transition: none;
   transform: translateX(400px);
 }
 
 /* devolver el register a su poscicion permitiendo que se vea */
-.wrapper.active .form-box.register {
+.wrapper.active .form-box.register, .wrapper.contacto .form-box.contacto{
   transition: transform .18s ease;
   transform: translateX(0);
 }
@@ -389,47 +404,44 @@ transition: .5s;
 
 
 
+/* Contenedor principal del footer */
 .contenedor-footer {
   position: relative;
-  display: block;
-  z-index: 30; 
-  bottom: 0;
+  z-index: 30;
   width: 100%;
   background-color: rgba(7, 1, 1, 0.445);
+  color: #fff;
+  text-align: center;
 }
 
+/* contenedor footer superior */
 .contenedor-footer .grupo-1 {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
   display: flex;
+  justify-content: space-around;
+  padding: 45px 0px;
   grid-template-columns: repeat(3, ifr);
   grid-gap: 50px;
-  padding: 45px 0px;
 }
 
+/* Logo del footer */
 .contenedor-footer .grupo-1 .box figure {
-  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.contenedor-footer .grupo-1 .box figure a {
+/* Links del footer */
+.contenedor-footer a {
   color: #fff;
 }
 
+/* Sobre nosotros */
 .contenedor-footer .grupo-1 .box h2 {
-  color: #fff;
   margin-bottom: 25px;
   font-size: 20px;
 }
 
-.contenedor-footer .grupo-1 .box p {
-  color: #efefef;
-  margin-bottom: 10px;
-}
 
 .contenedor-footer .grupo-1 .red-social a {
   display: inline-block;
@@ -437,7 +449,6 @@ transition: .5s;
   width: 45px;
   height: 45px;
   line-height: 45px;
-  color: #fff;
   margin-right: 10px;
   background-color: rgba(7, 1, 1, 0.438);
   text-align: center;
@@ -452,7 +463,6 @@ transition: .5s;
   background-color: rgba(7, 1, 1, 0.863);
   padding: 15px 10px;
   text-align: center;
-  color: #fff;
 }
 
 .contenedor-footer .grupo-2 small {
@@ -461,9 +471,8 @@ transition: .5s;
 
 @media screen and (max-width:800px) {
   .contenedor-footer .grupo-1 {
-    width: 90%;
+    display: block;
     grid-template-columns: repeat(1, ifr);
-    grid-gap: 30px;
     padding: 35px 0px;
   }
 }
@@ -477,7 +486,11 @@ transition: .5s;
 
 
 
-/* (No lo usé)
+
+
+
+
+/*
 #formulario-contacto {
   margin: 20px auto;
   max-width: 600px;
@@ -524,4 +537,3 @@ transition: .5s;
 #formulario-contacto input[type="submit"]:hover {
   background-color: #555;
 }
-/*
