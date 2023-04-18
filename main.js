@@ -61,10 +61,12 @@ $(document).ready(function(){
         }
         else
         {
-            document.getElementById('phoneR').innerHTML = phone;
-            document.getElementById('messageR').innerHTML = message;
             document.getElementById('nameR').innerHTML = name;
+            document.getElementById('phoneR').innerHTML = phone;
             document.getElementById('emailR').innerHTML = email;
+            let textareaR = document.getElementById("messageR");
+            textareaR.style.height = textarea.style.height;
+            document.getElementById('messageR').value = message;
             $(wrapper).addClass('resumen');
 
         }
@@ -104,7 +106,6 @@ $(document).ready(function(){
         .catch(err=>console.log(err))
         .finally()
         .then(()=>{
-            console.log(direccionImpresion);
             $("main").removeClass("imprimir");
             $(".contenido").removeClass("ocultar");
         });

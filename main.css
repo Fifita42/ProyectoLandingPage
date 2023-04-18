@@ -100,7 +100,7 @@ main{
   position: relative;
   z-index: 10;
   padding: 100px 10px;
-  background: rgba(17, 17, 17, 0.1);
+  background-color: rgba(17, 17, 17, 0.1);
   backdrop-filter: blur(10px);
 }
 /* Contenedor principal para texto introductorio y forms */
@@ -139,7 +139,7 @@ main{
 .contenido p {
   font-size: 100%;
   margin: 10px 0 40px;
-  color:#fff;
+  /* color:#fff; */
 }
 
 /* Estilo del boton del texto introductorio */
@@ -296,7 +296,6 @@ main{
 .wrapper .icon-pdf{
   visibility: hidden;
   top: 50px;
-  color:white;
   background-color: rgb(153, 47, 47);
 }
 .wrapper.resumen .icon-pdf{
@@ -319,7 +318,7 @@ main{
 }
 
 /* label de los input */
-.input-box label {
+.input-box label, .datos{
 position: absolute;
 top: 50%;
 left: 45px;
@@ -328,16 +327,13 @@ font-size: 1em;
 color: #fff;
 font-weight: 500;
 pointer-events: none;
-transition: .5s;
+transition: top .5s, left .5s;
 }
-.input-box label .datos{
-  position: relative;
-  color: #fff !important;
-}
+
 /* Levantar el label al escribir */
 .input-box input:focus~label,
 .input-box input:valid~label,
-.form-box.resumen label.datos{
+.form-box.resumen .datos{
   font-size: .8rem;
   top: -14px;
   left: 4px;
@@ -370,7 +366,7 @@ transition: .5s;
   border-bottom: 2px solid #162938;
   margin: 30px 0;
 }
-#message, .input-boxTxT #messageR{
+#message, #messageR{
   height: auto;
   max-height: 115px;
   overflow: hidden;
@@ -402,7 +398,7 @@ transition: .5s;
 /* es el contenedor de "recuerdame" y "Olvidaste tu contraseña?"*/
 .remember-forgot {
   font-size: .9em;
-  color: #000000;/*cambiar*/
+  color: #000000;
   font-weight: 500;
   margin: -15px 0 15px;
   display: flex;
@@ -411,13 +407,13 @@ transition: .5s;
 
 /* estilos para el checkbox */
 .remember-forgot label input {
-  accent-color: #1e0b04;/*cambiar*/
+  accent-color: #1e0b04;
   margin-right: 3px;
 }
 
 /* estilos del contenedor mostrado arriba */
 .remember-forgot a {
-  color: #000000;/*cambiar*/
+  color: #000000;
   text-decoration: none;
 }
 
@@ -538,7 +534,7 @@ transition: .5s;
 }
 
 .imprimir{
-  background-color: #101e29;
+  background: #101e29;
 }
 .ocultar{
   display: none;
