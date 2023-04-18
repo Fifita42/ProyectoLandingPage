@@ -523,7 +523,10 @@ transition: .5s;
   }
 }
 
-
 .imprimir{
   background-color: #101e29;
+}
+.ocultar{
+  display: none;
+  visibility: hidden;
 }

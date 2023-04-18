@@ -76,9 +76,11 @@ $(document).ready(function(){
 
     //imprimir
     const boton = '.icon-pdf';
+    let direccionImpresion = ($(window).width()>1215)?"landscape":"portrait";
     $(boton).click(()=>{
+        $('.contenido').addClass('ocultar');
         const $elementoParaPDF = document.querySelector('main');
-        $("main").addClass("imprimir");
+        $('main').addClass("imprimir");
         html2pdf()
         .set({
             margin: 1,
@@ -94,7 +96,7 @@ $(document).ready(function(){
             jsPDF: {
                 unit: "in",
                 format: "a3",
-                orientation:'portrait'
+                orientation: `${direccionImpresion}`
             }
         })
         .from($elementoParaPDF)
@@ -102,8 +104,9 @@ $(document).ready(function(){
         .catch(err=>console.log(err))
         .finally()
         .then(()=>{
-            console.log("Guardado");
+            console.log(direccionImpresion);
             $("main").removeClass("imprimir");
+            $(".contenido").removeClass("ocultar");
         });
     });
 });
