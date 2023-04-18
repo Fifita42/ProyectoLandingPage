@@ -7,13 +7,45 @@ $(document).ready(function(){
 
     let usuarios = {
         correo: ['juan@gmail.com','jose@gmail.com'],
-        contra : ['1234','1234']
+        contra : ['1234','1234'],
+        uss:['juan','jose']
     }
-
+   
     $('.login').submit((event)=> {
         event.preventDefault();
-        $('.icon-pdf').css('visibility','visible');
-        console.log("hola");
+
+        let mai = document.querySelector('.Lemail').value;
+        let pas = document.querySelector('.Lpass').value;
+        if(validar(mai,pas)){
+            $('.icon-pdf').css('visibility','visible');
+            console.log("hola");
+        }
+
+    });
+
+function validar(usu,contra){
+    let i = 0;
+    console.log(usu);
+    console.log(contra);
+    for(let elementos in usuarios.correo){
+        if(usuarios.correo[elementos]===usu&&contra===usuarios.contra[i]){
+            console.log("exitp");
+            return true;
+        }else{
+            i++;
+            console.log(elementos);
+            console.log(usuarios.contra[i]);
+        }
+    }
+}
+
+
+    $('.register').submit((event)=> {
+        event.preventDefault();
+        usuarios.correo.push(document.querySelector('.Ncorreo').value);
+        usuarios.contra.push(document.querySelector('.Npass').value);
+        usuarios.uss.push(document.querySelector('.NUsuario').value);
+        $(wrapper).toggleClass('active');
     });
 
     $('.login-register p span').click(()=> {
