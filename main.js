@@ -5,6 +5,17 @@ $(document).ready(function(){
     const contenido = '.contenido';
     const contacto = '.llamar';
 
+    let usuarios = {
+        correo: ['juan@gmail.com','jose@gmail.com'],
+        contra : ['1234','1234']
+    }
+
+    $('.login').submit((event)=> {
+        event.preventDefault();
+        $('.icon-pdf').css('visibility','visible');
+        console.log("hola");
+    });
+
     $('.login-register p span').click(()=> {
         $(wrapper).toggleClass('active');
     });
@@ -30,8 +41,8 @@ $(document).ready(function(){
 
     var textarea = document.getElementById("message");
     textarea.addEventListener("input", function() {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
+      this.style.height = "auto";
+      this.style.height = this.scrollHeight + "px";
     });
 
     $('.btnContacto').click(()=>{
@@ -73,7 +84,7 @@ $(document).ready(function(){
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
             return re.test(phone);
-        }
+       }
     });
 
     //imprimir
