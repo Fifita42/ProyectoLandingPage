@@ -243,39 +243,46 @@ main{
 .wrapper .form-box.login {
   transition: transform .18s ease;
   transform: translateX(0);
+  visibility: visible;
 }
 
 /* ocultar el login al elegir register y mostrar el register*/
 .wrapper.active .form-box.login, .wrapper.contacto .form-box.login{
   transition: none;
   transform: translateX(-400px);
+  visibility: hidden;
 }
 
-/* colocar el register a la derecha del login */
-.wrapper .form-box.register,  .wrapper .form-box.contacto, .wrapper .form-box.resumen{
-  position: absolute;
-  transition: none;
-  transform: translateX(400px);
+.wrapper.resumen .form-box.contacto{
+  transition: transform .18s ease;
+  transform: translateX(-400px);
+  visibility: hidden;
 }
 
 /* devolver el register a su poscicion permitiendo que se vea */
 .wrapper.active .form-box.register, .wrapper.contacto .form-box.contacto, .wrapper.resumen .form-box.resumen{
+  visibility: visible;
   transition: transform .18s ease;
   transform: translateX(0);
 }
-.wrapper.resumen .form-box.contacto{
-  transition: transform .18s ease;
-  transform: translateX(-400px);
+
+/* colocar el register a la derecha del login */
+.wrapper .form-box.register,  .wrapper .form-box.contacto,.wrapper.resumen .form-box.contacto, .wrapper .form-box.resumen{
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+  visibility: hidden;
 }
 
+
 /* icono X del contenedor de formularios */
-.wrapper .icon-close {
+.wrapper .icon-close, .wrapper .icon-pdf{
   position: absolute;
   top: 0;
   right: 0;
   width: 45px;
   height: 45px;
-  background: #162938;/*Cambiar el fondo*/
+  background: #162938;
   font-size: 2em;
   display: flex;
   justify-content: center;
@@ -285,7 +292,14 @@ main{
   z-index: 1;
   color: #fff
 }
+.wrapper .icon-pdf{
+  visibility: hidden;
+  top: 50px;
 
+}
+.wrapper.resumen .icon-pdf{
+  visibility:visible;
+}
 /* titulos de los form */
 .form-box h2 {
   font-size: 2em;
@@ -318,14 +332,14 @@ transition: .5s;
 /* Levantar el label al escribir */
 .input-box input:focus~label,
 .input-box input:valid~label,
-.form-box.resumen label{
+.form-box.resumen label.datos{
   font-size: .8rem;
   top: -14px;
   left: 4px;
 }
 
 /* estilos de los inputs de los forms */
-.input-box input {
+.input-box input,.form-box.resumen .delResumen{
   width: 90%;
   height: 100%;
   background: transparent;
@@ -336,7 +350,10 @@ transition: .5s;
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
-
+.form-box.resumen .delResumen{
+  display: inline-block;
+  text-align: start;
+}
 
 .input-boxTxT {
   min-height: 1rem;
@@ -347,7 +364,8 @@ transition: .5s;
 }
 #message, .input-boxTxT #messageR{
   height: auto;
-  max-height: 100px;
+  max-height: 115px;
+  overflow: hidden;
   width: 100%;
   resize: none;
   background: transparent;
@@ -506,62 +524,6 @@ transition: .5s;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-#formulario-contacto {
-  margin: 20px auto;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #f2f2f2;
-}
-
-#formulario-contacto label {
-  display: block;
-  font-size: 18px;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-#formulario-contacto input[type="text"],
-#formulario-contacto input[type="email"],
-#formulario-contacto textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  font-size: 16px;
-  color: #333;
-}
-
-#formulario-contacto input[type="submit"] {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-#formulario-contacto input[type="submit"]:hover {
-  background-color: #555;
+.imprimir{
+  background-color: #101e29;
 }

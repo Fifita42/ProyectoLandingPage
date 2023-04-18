@@ -40,7 +40,12 @@ $(document).ready(function(){
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
 
-        if (phone === '') {
+        if(name === ''){
+            alert('Por favor, ingrese un nombre válido');
+            document.getElementById('name').focus();
+            return;
+        }
+        else if (phone === '') {
             alert('Por favor, ingrese su teléfono');
             document.getElementById('phone').focus();
             return;
@@ -56,17 +61,10 @@ $(document).ready(function(){
         }
         else
         {
-            console.log('Datos ingresados:');
-            console.log(`Nombre: ${name}`);
-            console.log(`Teléfono: ${phone}`);
-            console.log(`Email: ${email}`);
-            console.log(`Mensaje: ${message}`);
-
-            document.getElementById('phoneR').value = phone;
-            document.getElementById('messageR').value = message;
-            document.getElementById('nameR').value = name;
-            document.getElementById('emailR').value = email;
-
+            document.getElementById('phoneR').innerHTML = phone;
+            document.getElementById('messageR').innerHTML = message;
+            document.getElementById('nameR').innerHTML = name;
+            document.getElementById('emailR').innerHTML = email;
             $(wrapper).addClass('resumen');
 
         }
@@ -76,4 +74,36 @@ $(document).ready(function(){
        }
     });
 
+    //imprimir
+    const boton = '.icon-pdf';
+    $(boton).click(()=>{
+        const $elementoParaPDF = document.querySelector('main');
+        $("main").addClass("imprimir");
+        html2pdf()
+        .set({
+            margin: 1,
+            filename: 'ResumenDeContacto.pdf',
+            image: {
+                type: 'jpeg',
+                quality: 0.98
+            },
+            html2canvas: {
+                scale: 3,
+                letterRendering: true,
+            },
+            jsPDF: {
+                unit: "in",
+                format: "a3",
+                orientation:'portrait'
+            }
+        })
+        .from($elementoParaPDF)
+        .save()
+        .catch(err=>console.log(err))
+        .finally()
+        .then(()=>{
+            console.log("Guardado");
+            $("main").removeClass("imprimir");
+        });
+    });
 });

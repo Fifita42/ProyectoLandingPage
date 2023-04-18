@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <link rel="icon" href="icons.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="main.css">            
+    <link rel="stylesheet" type="text/css" href="main.css">     
     <title>Ropa</title>
 </head>
 <body>
@@ -76,9 +76,8 @@
             <!-- Contenedor de los formularios -->
             <div class="wrapper">
                 <!-- boton de cerrar el formulario -->
-                <span class="icon-close">
-                    <i class="bi bi-x-lg"></i>
-                </span>
+                <span class="icon-close"><i class="bi bi-x-lg"></i></span>
+                <span class="icon-pdf"><i class="bi bi-x-lg"></i></span>
         
                 <!-- login -->
                 <div class="form-box login">
@@ -165,26 +164,26 @@
                 </div>
 
                 <!-- Resumen -->
-                <div class="form-box resumen">
+                <div class="form-box resumen" id="Resumen">
                     <h2>Resumen</h2>
                     <form action="#" class="submitMessage">
                         <div class="input-box">
                             <span class="icon"><i class="bi bi-person-fill"></i></span>
-                            <input type="text" name="name" id="nameR" disabled>     
-                            <label for="name">Nombre</label>
+                            <div id="nameR" class="delResumen"></div>    
+                            <label class="datos">Nombre</label>
                         </div>
                         <div class="input-box">
                             <span class="icon"><i class="bi bi-telephone-fill"></i></span>
-                            <input type="tel" name="phone" id="phoneR" disabled>
-                            <label for="phone">Teléfono</label>
+                            <div id="phoneR" class="delResumen"></div>
+                            <label class="datos">Teléfono</label>
                         </div>
                         <div class="input-box">
                             <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                            <input type="email" name="email" id="emailR" disabled>
-                            <label for="email">Email</label>
+                            <div id="emailR" class="delResumen"></div>
+                            <label class="datos">Email</label>
                         </div>
                         <div class="input-boxTxT">
-                            <textarea name="message" id="messageR"  rows="1" disabled></textarea>
+                            <textarea id="messageR"  rows="1" disabled></textarea>
                         </div>
                        <button type="submit" class="btn">Enviar</button>
                    </form>
@@ -223,6 +222,6 @@
     </footer>
     
     <script src="main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="html2pdf.bundle.min.js"></script>
 </body>
 </html>
