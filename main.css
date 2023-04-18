@@ -165,7 +165,8 @@ main{
 
 /* Contenedor de forms */
 .wrapper {
-  width: 400px;
+  max-width: 400px;
+  width: 97vw;
   height: 440px;
   background: rgba(255, 255, 255, .1);
   backdrop-filter: blur(10px);
@@ -383,6 +384,12 @@ transition: .5s;
   font-size: 1.2em;
   color: #fff;
   user-select: none;
+}
+.input-box .icon{
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: -2px;
 }
 
 /* es el contenedor de "recuerdame" y "Olvidaste tu contraseña?"*/
