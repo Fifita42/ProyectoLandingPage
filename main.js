@@ -30,8 +30,8 @@ $(document).ready(function(){
 
     var textarea = document.getElementById("message");
     textarea.addEventListener("input", function() {
-      this.style.height = "auto";
-      this.style.height = this.scrollHeight + "px";
+        this.style.height = "auto";
+        this.style.height = this.scrollHeight + "px";
     });
 
     $('.btnContacto').click(()=>{
@@ -73,7 +73,7 @@ $(document).ready(function(){
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
             return re.test(phone);
-       }
+        }
     });
 
     //imprimir
