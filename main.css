@@ -296,7 +296,8 @@ main{
 .wrapper .icon-pdf{
   visibility: hidden;
   top: 50px;
-
+  color:white;
+  background-color: rgb(153, 47, 47);
 }
 .wrapper.resumen .icon-pdf{
   visibility:visible;
@@ -329,7 +330,10 @@ font-weight: 500;
 pointer-events: none;
 transition: .5s;
 }
-
+.input-box label .datos{
+  position: relative;
+  color: #fff !important;
+}
 /* Levantar el label al escribir */
 .input-box input:focus~label,
 .input-box input:valid~label,
@@ -346,14 +350,17 @@ transition: .5s;
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1em;
+  font-size: 90%;
   color: #fff;
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
 .form-box.resumen .delResumen{
-  display: inline-block;
+  display: flex;
+  position: relative;
+  left: 15px;
   text-align: start;
+  align-items: center;
 }
 
 .input-boxTxT {

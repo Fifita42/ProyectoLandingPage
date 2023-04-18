@@ -79,8 +79,8 @@ $(document).ready(function(){
     let direccionImpresion = ($(window).width()>1215)?"landscape":"portrait";
     $(boton).click(()=>{
         $('.contenido').addClass('ocultar');
-        const $elementoParaPDF = document.querySelector('main');
         $('main').addClass("imprimir");
+        const $elementoParaPDF = document.querySelector('main');
         html2pdf()
         .set({
             margin: 1,
