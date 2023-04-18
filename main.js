@@ -13,32 +13,21 @@ $(document).ready(function(){
    
     $('.login').submit((event)=> {
         event.preventDefault();
-
         let mai = document.querySelector('.Lemail').value;
         let pas = document.querySelector('.Lpass').value;
         if(validar(mai,pas)){
             $('.icon-pdf').css('visibility','visible');
             console.log("hola");
         }
-
     });
 
 function validar(usu,contra){
-    let i = 0;
-    console.log(usu);
-    console.log(contra);
     for(let elementos in usuarios.correo){
-        if(usuarios.correo[elementos]===usu&&contra===usuarios.contra[i]){
-            console.log("exitp");
+        if(usuarios.correo[elementos]===usu&&contra===usuarios.contra[elementos]){
             return true;
-        }else{
-            i++;
-            console.log(elementos);
-            console.log(usuarios.contra[i]);
         }
     }
 }
-
 
     $('.register').submit((event)=> {
         event.preventDefault();
