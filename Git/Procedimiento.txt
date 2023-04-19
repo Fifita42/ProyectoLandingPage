@@ -24,7 +24,5 @@ git commit -m "mensaje"
 subir:
 git push origin main
 
-
-
 para descargar ultimos cambios en el repositorio
 git pull
