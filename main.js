@@ -16,7 +16,7 @@ $(document).ready(function () {
         let mai = document.querySelector('.Lemail').value;
         let pas = document.querySelector('.Lpass').value;
         if (validar(mai, pas)) {
-            event.submit();
+            location.reload();
         }
     });
 
