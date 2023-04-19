@@ -5,13 +5,14 @@ $(document).ready(function(){
     const contenido = '.contenido';
     const contacto = '.llamar';
 
+    //usuarios precargados para la pagina
     let usuarios = {
         correo: ['juan@gmail.com','jose@gmail.com'],
         contra : ['1234','1234'],
         uss:['juan','jose']
     }
    
-    
+    //al hacer click en el formulario de login activa esta seccion para verificar los datos y loguearse
     $('.login').submit((event)=> {
         event.preventDefault();
         let mai = document.querySelector('.Lemail').value;
@@ -22,14 +23,16 @@ $(document).ready(function(){
         }
     });
 
-function validar(usu,contra){
-    for(let elementos in usuarios.correo){
-        if(usuarios.correo[elementos]===usu&&contra===usuarios.contra[elementos]){
-            return true;
+    //esta funcion comprueba que los datos ingresados coincidan con los datos de la base
+    function validar(usu,contra){
+        for(let elementos in usuarios.correo){
+            if(usuarios.correo[elementos]===usu&&contra===usuarios.contra[elementos]){
+                return true;
+            }
         }
     }
-}
 
+    //al hacer click en el formulario de registro esta seccion carga un nuevo usuario
     $('.register').submit((event)=> {
         event.preventDefault();
         usuarios.correo.push(document.querySelector('.Ncorreo').value);
@@ -38,35 +41,43 @@ function validar(usu,contra){
         $(wrapper).toggleClass('active');
     });
 
+    //boton de registrar o login, es para mostrar uno de los dos formularios
     $('.login-register p span').click(()=> {
         $(wrapper).toggleClass('active');
     });
 
+    //mostrar los formularios
     $(btnPopup).click(()=> {
-        $(wrapper).toggleClass('active-popup');
-        $(wrapper).removeClass('active');
-        $(contenido).toggleClass('active');
+        $(wrapper).addClass('active-popup');
+        $(wrapper).removeClass('active contacto resumen');
+        $(contenido).addClass('active');
     });
     
+    //cerrar los formularios
     $(iconClose).click(()=> {
         $(wrapper).removeClass('active-popup active contacto resumen');
         $(contenido).removeClass('active contacto');
         $('input').val(null);
+        $('textarea').val(null);
     });
 
+    //mostrar el area de contacto
     $(contacto).click(()=> {
         $(wrapper).addClass('active-popup');
-        $(wrapper).toggleClass('contacto');
+        $(wrapper).addClass('contacto');
         $(wrapper).removeClass('active resumen');
         $(contenido).addClass('active');
     });
 
+
+    //alargar el alto del textarea del formulario de contacto automaticamente
     var textarea = document.getElementById("message");
     textarea.addEventListener("input", function() {
       this.style.height = "auto";
       this.style.height = this.scrollHeight + "px";
     });
 
+    //verificar los datos ingresados en el formulario de contacto
     $('.btnContacto').click(()=>{
         const phone =  document.getElementById('phone').value.trim();
         const message = document.getElementById('message').value.trim();
@@ -94,6 +105,7 @@ function validar(usu,contra){
         }
         else
         {
+            //agregar los datos del contacto al formulario de resumen
             document.getElementById('nameR').innerHTML = name;
             document.getElementById('phoneR').innerHTML = phone;
             document.getElementById('emailR').innerHTML = email;
@@ -101,13 +113,19 @@ function validar(usu,contra){
             textareaR.style.height = textarea.style.height;
             document.getElementById('messageR').value = message;
             $(wrapper).addClass('resumen');
-
         }
+        
+        $('.resumeEnviar').click((name,phone,email,message)=>{
+            //"enviar" los datos a la "base de datos"
+            let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
+            console.log(data);
+     });
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
             return re.test(phone);
        }
     });
+
 
     //imprimir
     const boton = '.icon-pdf';
