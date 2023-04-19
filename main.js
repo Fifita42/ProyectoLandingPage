@@ -113,17 +113,16 @@ $(document).ready(function(){
             textareaR.style.height = textarea.style.height;
             document.getElementById('messageR').value = message;
             $(wrapper).addClass('resumen');
-        }
-        
-        $('.resumeEnviar').click((name,phone,email,message)=>{
-            //"enviar" los datos a la "base de datos"
-            let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
-            console.log(data);
-     });
+        }        
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
             return re.test(phone);
        }
+    });
+    //"enviar" los datos a la "base de datos"
+    $('.resumeEnviar').click((name,phone,email,message)=>{
+        let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
+        console.log(data);
     });
 
 
