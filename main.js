@@ -7,11 +7,28 @@ $(document).ready(function(){
 
     //usuarios precargados para la pagina
     let usuarios = {
-        correo: ['juan@gmail.com','jose@gmail.com'],
-        contra : ['1234','1234'],
-        uss:['juan','jose']
+        corrreo: ['juan@gmail.com','jose@gmail.com'],
+        contra: ['1234','1234'],
+        usu: ['jose','juan'],
     }
-   
+
+    function agregarUsuario() {
+        const usuario = {
+            nombre: $('.NUsuario').val(), 
+            correo: $('.Ncorreo').val(),
+            pass: $('.Npass').val()
+        };
+        usuarios.push(usuario);
+        console.log(usuarios);
+    }
+
+    $('form').submit(function(event) {
+        event.preventDefault();
+        agregarUsuario();
+        $(this).trigger('reset');
+        });
+
+
     //al hacer click en el formulario de login activa esta seccion para verificar los datos y loguearse
     $('.login').submit((event)=> {
         event.preventDefault();
