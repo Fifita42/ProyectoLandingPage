@@ -7,10 +7,10 @@ $(document).ready(function () {
     let ID = 1;
     //usuarios precargados para la pagina
     let usuarios = {
-        correo: ['juan@gmail.com','jose@gmail.com'],
-        contra : ['1234','1234'],
-        uss:['juan','jose'],
-        id:[0,1]
+        correo: ['juan@gmail.com', 'jose@gmail.com'],
+        contra: ['1234', '1234'],
+        uss: ['juan', 'jose'],
+        id: [0, 1]
     }
 
     $('.login').submit((event) => {
@@ -20,9 +20,9 @@ $(document).ready(function () {
         let pas = document.querySelector('.Lpass').value;
 
         if (validar(mai, pas)) $('.icon-pdf').css('visibility', 'visible');
-        else  alert("El mail o la contraseña no son erroneos")
-        
-        const enviar =[{mai, pas}];
+        else alert("El mail o la contraseña no son erroneos")
+
+        const enviar = [{ mai, pas }];
         console.log(enviar);
     });
 
@@ -32,7 +32,7 @@ $(document).ready(function () {
             else return false
         }
     }
-    
+
     $('.register').submit((event) => {
         event.preventDefault();
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
         ID++;
         usuarios.id.push(ID);
 
-        let enviar = [{Ncorreo,Npass,NUsuario,ID}];
+        let enviar = [{ Ncorreo, Npass, NUsuario, ID }];
         console.log(enviar);
 
         $(wrapper).removeClass('active');
@@ -83,8 +83,7 @@ $(document).ready(function () {
         this.style.height = this.scrollHeight + "px";
     });
 
-    $('.btnContacto').click(() => 
-    {
+    $('.btnContacto').click(() => {
         const phone = document.getElementById('phone').value.trim();
         const message = document.getElementById('message').value.trim();
         const name = document.getElementById('name').value.trim();
@@ -120,12 +119,12 @@ $(document).ready(function () {
 
             $(wrapper).addClass('resumen');
         }
-        
-        $('.resumeEnviar').click(()=>{
+
+        $('.resumeEnviar').click(() => {
             //"enviar" los datos a la "base de datos"
-            let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
+            let data = [document.getElementById('nameR').innerHTML, document.getElementById('phoneR').innerHTML, document.getElementById('emailR').innerHTML, document.getElementById('messageR').value];
             console.log(data);
-     });
+        });
 
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
@@ -141,7 +140,7 @@ $(document).ready(function () {
         $('main').addClass("imprimir");
 
         const $elementoParaPDF = document.querySelector('main');
-        
+
         html2pdf()
             .set({
                 margin: 1,

@@ -5,38 +5,47 @@
   font-family: "poppins", sans-serif;
   font-size: 1em;
 }
-body{
+
+body {
   position: relative;
   height: 100%;
 }
-p,h2{
+
+p,
+h2 {
   user-select: none;
 }
+
 /* Contenedor de los contenedores de los contenedores de background */
-.carousel{
+.carousel {
   position: absolute;
-  height:inherit;
+  height: inherit;
   width: 100%;
 }
+
 /* contenedor de contenedor de background */
-.carousel-inner, .carousel-item,.carousel-item img{
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
   height: 100%;
 }
+
 /* Contenedor de background */
-.carousel-item{
+.carousel-item {
   transition: transform 2s ease, opacity .5s ease-out;
 }
+
 /* Background */
-.carousel-item img{
+.carousel-item img {
   width: 100%;
   object-fit: cover;
 }
 
 /* Contenedor del nav */
 .header {
-  position:fixed;
+  position: fixed;
   top: 0;
-  width:100%;
+  width: 100%;
   background-color: rgba(7, 1, 1, 0.438);
   display: flex;
   justify-content: space-between;
@@ -45,6 +54,7 @@ p,h2{
   backdrop-filter: blur(50px);
   border-bottom: 2px solid rgba(165, 160, 160, 0.2);
 }
+
 /* Efecto de reflexion para el nav */
 .header::before {
   content: '';
@@ -56,6 +66,7 @@ p,h2{
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
   transition: .5s;
 }
+
 /* parte del efecto */
 .header:hover::before {
   left: 100%;
@@ -67,6 +78,7 @@ p,h2{
   color: #fff;
   text-decoration: none;
 }
+
 /* links del nav */
 .nav a {
   position: relative;
@@ -94,7 +106,8 @@ p,h2{
 .nav a:hover::after {
   transform: scaleX(1);
 }
-main{
+
+main {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -103,6 +116,7 @@ main{
   background-color: rgba(17, 17, 17, 0.1);
   backdrop-filter: blur(10px);
 }
+
 /* Contenedor principal para texto introductorio y forms */
 .inicio {
   display: flex;
@@ -117,7 +131,7 @@ main{
 }
 
 /* Texto introductorio */
-.contenido  {
+.contenido {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -130,7 +144,7 @@ main{
 
 /* Titulo de la pagina */
 .contenido h2 {
-  font-size:200%;
+  font-size: 200%;
   letter-spacing: .03rem;
   font-weight: bold;
 }
@@ -143,7 +157,7 @@ main{
 }
 
 /* Estilo del boton del texto introductorio */
-.contenido a{
+.contenido a {
   color: #fff;
   background: rgba(129, 118, 118, 0.4);
   box-shadow: 0 8px 10px rgba(56, 52, 52, 0.5);
@@ -180,37 +194,46 @@ main{
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
   user-select: none;
 }
+
 /* .active se agrega al mostrar el register */
 .wrapper.active {
   height: 520px;
 }
+
 .wrapper.contacto {
   height: 600px;
 }
 
 /* pantalla grande */
-@media (min-width: 1215px){
-  main{
+@media (min-width: 1215px) {
+  main {
     overflow: hidden;
   }
+
   .inicio {
     flex-direction: row;
   }
-  .contenido{
+
+  .contenido {
     position: absolute;
   }
-  .contenido.active,.contenido.contacto{
+
+  .contenido.active,
+  .contenido.contacto {
     transform: translateX(-40%);
   }
-  .wrapper{
+
+  .wrapper {
     position: absolute;
     transform: scaleX(0);
   }
+
   /* Mostrar el contenedor */
   .wrapper.active-popup {
     transform: scaleX(1) translateX(100%);
   }
 }
+
 /* pantalla chica */
 @media (max-width: 1214px) {
   .inicio {
@@ -218,19 +241,24 @@ main{
     align-items: center;
     justify-content: center;
   }
-  .contenido{
+
+  .contenido {
     width: 70%;
     object-fit: contain;
     position: relative;
   }
-  .contenido.active,.contenido.contacto{
+
+  .contenido.active,
+  .contenido.contacto {
     transform: translateY(-150vh);
   }
-  .wrapper{
+
+  .wrapper {
     position: absolute;
     transform: scaleY(0);
   }
-  .wrapper.active-popup{
+
+  .wrapper.active-popup {
     transform: scaleY(1);
   }
 }
@@ -240,6 +268,7 @@ main{
   width: 100%;
   padding: 40px;
 }
+
 /* ocultar el form login al inicio */
 .wrapper .form-box.login {
   transition: transform .18s ease;
@@ -248,27 +277,33 @@ main{
 }
 
 /* ocultar el login al elegir register y mostrar el register*/
-.wrapper.active .form-box.login, .wrapper.contacto .form-box.login{
+.wrapper.active .form-box.login,
+.wrapper.contacto .form-box.login {
   transition: none;
   transform: translateX(-400px);
   visibility: hidden;
 }
 
-.wrapper.resumen .form-box.contacto{
+.wrapper.resumen .form-box.contacto {
   transition: transform .18s ease;
   transform: translateX(-400px);
   visibility: hidden;
 }
 
 /* devolver el register a su poscicion permitiendo que se vea */
-.wrapper.active .form-box.register, .wrapper.contacto .form-box.contacto, .wrapper.resumen .form-box.resumen{
+.wrapper.active .form-box.register,
+.wrapper.contacto .form-box.contacto,
+.wrapper.resumen .form-box.resumen {
   visibility: visible;
   transition: transform .18s ease;
   transform: translateX(0);
 }
 
 /* colocar el register a la derecha del login */
-.wrapper .form-box.register,  .wrapper .form-box.contacto,.wrapper.resumen .form-box.contacto, .wrapper .form-box.resumen{
+.wrapper .form-box.register,
+.wrapper .form-box.contacto,
+.wrapper.resumen .form-box.contacto,
+.wrapper .form-box.resumen {
   position: absolute;
   transition: none;
   transform: translateX(400px);
@@ -277,7 +312,8 @@ main{
 
 
 /* icono X del contenedor de formularios */
-.wrapper .icon-close, .wrapper .icon-pdf{
+.wrapper .icon-close,
+.wrapper .icon-pdf {
   position: absolute;
   top: 0;
   right: 0;
@@ -293,14 +329,17 @@ main{
   z-index: 1;
   color: #fff
 }
-.wrapper .icon-pdf{
+
+.wrapper .icon-pdf {
   visibility: hidden;
   top: 50px;
   background-color: rgb(153, 47, 47);
 }
-.wrapper.resumen .icon-pdf{
-  visibility:visible;
+
+.wrapper.resumen .icon-pdf {
+  visibility: visible;
 }
+
 /* titulos de los form */
 .form-box h2 {
   font-size: 2em;
@@ -313,34 +352,37 @@ main{
   position: relative;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #162938;/*cambiar*/
+  border-bottom: 2px solid #162938;
+  /*cambiar*/
   margin: 30px 0;
 }
 
 /* label de los input */
-.input-box label, .datos{
-position: absolute;
-top: 50%;
-left: 45px;
-transform: translateY(-50%);  
-font-size: 1em;
-color: #fff;
-font-weight: 500;
-pointer-events: none;
-transition: top .5s, left .5s;
+.input-box label,
+.datos {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  pointer-events: none;
+  transition: top .5s, left .5s;
 }
 
 /* Levantar el label al escribir */
 .input-box input:focus~label,
 .input-box input:valid~label,
-.form-box.resumen .datos{
+.form-box.resumen .datos {
   font-size: .8rem;
   top: -14px;
   left: 4px;
 }
 
 /* estilos de los inputs de los forms */
-.input-box input,.form-box.resumen .delResumen{
+.input-box input,
+.form-box.resumen .delResumen {
   width: 90%;
   height: 100%;
   background: transparent;
@@ -351,7 +393,8 @@ transition: top .5s, left .5s;
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
-.form-box.resumen .delResumen{
+
+.form-box.resumen .delResumen {
   display: flex;
   position: relative;
   left: 15px;
@@ -366,7 +409,9 @@ transition: top .5s, left .5s;
   border-bottom: 2px solid #162938;
   margin: 30px 0;
 }
-#message, #messageR{
+
+#message,
+#messageR {
   height: auto;
   max-height: 115px;
   overflow: hidden;
@@ -382,15 +427,17 @@ transition: top .5s, left .5s;
 }
 
 /* estilos de los iconos dentro de los inputs */
-.input-box .icon , span{
+.input-box .icon,
+span {
   position: relative;
   font-size: 1.2em;
   color: #fff;
   user-select: none;
 }
-.input-box .icon{
+
+.input-box .icon {
   position: absolute;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
   left: -2px;
 }
@@ -426,7 +473,8 @@ transition: top .5s, left .5s;
 .btn {
   width: 100%;
   height: 45px;
-  background:linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);/*cambiar*/
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+  /*cambiar*/
   box-shadow: 0 8px 10px rgba(0, 0, 0, .5);
   border: none;
   outline: none;
@@ -440,7 +488,8 @@ transition: top .5s, left .5s;
 /* Texto "No tenes una cuenta? registrarse/ingresar" */
 .login-register {
   font-size: .9em;
-  color: #000000;/*cambiar*/
+  color: #000000;
+  /*cambiar*/
   text-align: center;
   font-weight: 500;
   margin: 25px 0 10px;
@@ -448,7 +497,8 @@ transition: top .5s, left .5s;
 
 /* registrarse/ingresar */
 .login-register p span {
-  color: #000000;/*cambiar*/
+  color: #000000;
+  /*cambiar*/
   text-decoration: none;
   font-weight: 600;
 }
@@ -513,7 +563,7 @@ transition: top .5s, left .5s;
 
 .contenedor-footer .grupo-1 .red-social a:hover {
   color: rgb(223, 214, 139);
-} 
+}
 
 .contenedor-footer .grupo-2 {
   background-color: rgba(7, 1, 1, 0.863);
@@ -533,10 +583,11 @@ transition: top .5s, left .5s;
   }
 }
 
-.imprimir{
+.imprimir {
   background: #101e29;
 }
-.ocultar{
+
+.ocultar {
   display: none;
   visibility: hidden;
 }
