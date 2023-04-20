@@ -4,12 +4,13 @@ $(document).ready(function(){
     const iconClose = '.icon-close';
     const contenido = '.contenido';
     const contacto = '.llamar';
-
+    let ID = 2;
     //usuarios precargados para la pagina
     let usuarios = {
         correo: ['juan@gmail.com','jose@gmail.com'],
         contra : ['1234','1234'],
-        uss:['juan','jose']
+        uss:['juan','jose'],
+        id:[0,1]
     }
    
     //al hacer click en el formulario de login activa esta seccion para verificar los datos y loguearse
@@ -20,7 +21,16 @@ $(document).ready(function(){
         if(validar(mai,pas)){
             $('.icon-pdf').css('visibility','visible');
             console.log("hola");
+            
         }
+
+        const enviar =[ {
+            mai,
+            pas
+        }];
+        // let enviar = [mai,pas];
+
+        console.log(enviar);
     });
 
     //esta funcion comprueba que los datos ingresados coincidan con los datos de la base
@@ -35,9 +45,22 @@ $(document).ready(function(){
     //al hacer click en el formulario de registro esta seccion carga un nuevo usuario
     $('.register').submit((event)=> {
         event.preventDefault();
-        usuarios.correo.push(document.querySelector('.Ncorreo').value);
-        usuarios.contra.push(document.querySelector('.Npass').value);
-        usuarios.uss.push(document.querySelector('.NUsuario').value);
+        let Ncorreo = document.querySelector('.Ncorreo').value;
+        let Npass = document.querySelector('.Npass').value;
+        let NUsuario = document.querySelector('.NUsuario').value;
+        usuarios.correo.push(Ncorreo);
+        usuarios.contra.push(Npass);
+        usuarios.uss.push(NUsuario);
+        ID++;
+        usuarios.id.push(ID);
+
+        let enviar = [{
+            Ncorreo,
+            Npass,
+            NUsuario,
+            ID
+        }];
+        console.log(enviar);
         $(wrapper).toggleClass('active');
     });
 
@@ -113,16 +136,17 @@ $(document).ready(function(){
             textareaR.style.height = textarea.style.height;
             document.getElementById('messageR').value = message;
             $(wrapper).addClass('resumen');
-        }        
+        }
+        
+        $('.resumeEnviar').click((name,phone,email,message)=>{
+            //"enviar" los datos a la "base de datos"
+            let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
+            console.log(data);
+     });
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
             return re.test(phone);
        }
-    });
-    //"enviar" los datos a la "base de datos"
-    $('.resumeEnviar').click((name,phone,email,message)=>{
-        let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
-        console.log(data);
     });
 
 
