@@ -20,7 +20,6 @@ $(document).ready(function () {
         if (validar(mai, pas)) {
             $('.icon-pdf').css('visibility', 'visible');
             console.log("hola");
-            
         }
 
         const enviar =[ {
@@ -29,9 +28,6 @@ $(document).ready(function () {
         }];
         console.log(enviar);
     });
-
-    
-
 
     function validar(usu, contra) {
         for (let elementos in usuarios.correo) {
