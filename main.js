@@ -12,6 +12,7 @@ $(document).ready(function () {
         uss: ['juan', 'jose'],
         id: [0, 1]
     }
+    let datos = [];
 
     $('.login').submit((event) => {
         event.preventDefault();
@@ -22,8 +23,9 @@ $(document).ready(function () {
         if (validar(mai, pas)) $('.icon-pdf').css('visibility', 'visible');
         else alert("El mail o la contraseña son erroneos");
 
-        const enviar = [{ mai, pas }];
-        console.log(enviar);
+        const enviar = { mai, pas };
+        datos.push(enviar);
+        console.log(datos);
     });
 
     function validar(usu, contra) {
