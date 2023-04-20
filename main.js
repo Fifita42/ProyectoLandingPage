@@ -24,6 +24,7 @@ $(document).ready(function () {
         let enviar = {
             mai,
             pas
+
         }
         datos.push(enviar);
         console.log(datos);
@@ -40,11 +41,27 @@ $(document).ready(function () {
         }
     }
     
+    let ID = 0;
+
     $('.register').submit((event) => {
         event.preventDefault();
+        let Ncorreo = document.querySelector('.Ncorreo').value;
+        let Npass = document.querySelector('.Npass').value;
+        let NUsuario = document.querySelector('.NUsuario').value;
+
         usuarios.correo.push(document.querySelector('.Ncorreo').value);
         usuarios.contra.push(document.querySelector('.Npass').value);
         usuarios.uss.push(document.querySelector('.NUsuario').value);
+        ID++;
+        let enviar = [{
+            ID,
+            Ncorreo,
+            Npass,
+            NUsuario
+        }];
+
+        console.log(enviar);
+        
         $(wrapper).toggleClass('active');
     });
 
