@@ -67,20 +67,21 @@ $(document).ready(function () {
     });
 
     $(btnPopup).click(() => {
-        $(wrapper).toggleClass('active-popup');
-        $(wrapper).removeClass('active');
-        $(contenido).toggleClass('active');
+        $(wrapper).addClass('active-popup');
+        $(wrapper).removeClass('active contacto resumen');
+        $(contenido).addClass('active');
     });
 
     $(iconClose).click(() => {
         $(wrapper).removeClass('active-popup active contacto resumen');
         $(contenido).removeClass('active contacto');
         $('input').val(null);
+        $('textarea').val(null);
     });
 
     $(contacto).click(() => {
         $(wrapper).addClass('active-popup');
-        $(wrapper).toggleClass('contacto');
+        $(wrapper).addClass('contacto');
         $(wrapper).removeClass('active resumen');
         $(contenido).addClass('active');
     });
