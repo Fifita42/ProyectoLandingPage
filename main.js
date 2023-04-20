@@ -15,48 +15,43 @@ $(document).ready(function () {
 
     $('.login').submit((event) => {
         event.preventDefault();
+
         let mai = document.querySelector('.Lemail').value;
         let pas = document.querySelector('.Lpass').value;
-        if (validar(mai, pas)) {
-            $('.icon-pdf').css('visibility', 'visible');
-            console.log("hola");
-        }
 
-        const enviar =[ {
-            mai,
-            pas
-        }];
+        if (validar(mai, pas)) $('.icon-pdf').css('visibility', 'visible');
+        else  alert("El mail o la contraseña no son erroneos")
+        
+        const enviar =[{mai, pas}];
         console.log(enviar);
     });
 
     function validar(usu, contra) {
         for (let elementos in usuarios.correo) {
-            if (usuarios.correo[elementos] === usu && contra === usuarios.contra[elementos]) {
-                return true;
-            }
+            if (usuarios.correo[elementos] === usu && contra === usuarios.contra[elementos]) return true;
+            else return false
         }
     }
     
     $('.register').submit((event) => {
         event.preventDefault();
+
         let Ncorreo = document.querySelector('.Ncorreo').value;
         let Npass = document.querySelector('.Npass').value;
         let NUsuario = document.querySelector('.NUsuario').value;
+
         usuarios.correo.push(Ncorreo);
         usuarios.contra.push(Npass);
         usuarios.uss.push(NUsuario);
         ID++;
         usuarios.id.push(ID);
 
-        let enviar = [{
-            Ncorreo,
-            Npass,
-            NUsuario,
-            ID
-        }];
+        let enviar = [{Ncorreo,Npass,NUsuario,ID}];
         console.log(enviar);
-        $(wrapper).toggleClass('active');
+
+        $(wrapper).removeClass('active');
     });
+
 
     $('.login-register p span').click(() => {
         $(wrapper).toggleClass('active');
@@ -118,13 +113,15 @@ $(document).ready(function () {
             document.getElementById('nameR').innerHTML = name;
             document.getElementById('phoneR').innerHTML = phone;
             document.getElementById('emailR').innerHTML = email;
+
             let textareaR = document.getElementById("messageR");
             textareaR.style.height = textarea.style.height;
-            document.getElementById('messageR').value = message;
+            textareaR.value = message;
+
             $(wrapper).addClass('resumen');
         }
         
-        $('.resumeEnviar').click((name,phone,email,message)=>{
+        $('.resumeEnviar').click(()=>{
             //"enviar" los datos a la "base de datos"
             let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
             console.log(data);
@@ -137,12 +134,14 @@ $(document).ready(function () {
     });
 
     //imprimir
-    const boton = '.icon-pdf';
     let direccionImpresion = ($(window).width() > 1215) ? "landscape" : "portrait";
-    $(boton).click(() => {
+
+    $('.icon-pdf').click(() => {
         $('.contenido').addClass('ocultar');
         $('main').addClass("imprimir");
+
         const $elementoParaPDF = document.querySelector('main');
+        
         html2pdf()
             .set({
                 margin: 1,
