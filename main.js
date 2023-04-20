@@ -23,6 +23,10 @@ $(document).ready(function () {
             
         }
 
+        else {
+            alert("El mail o la contraseña no son erroneos")
+        }
+
         const enviar =[ {
             mai,
             pas
@@ -37,6 +41,9 @@ $(document).ready(function () {
         for (let elementos in usuarios.correo) {
             if (usuarios.correo[elementos] === usu && contra === usuarios.contra[elementos]) {
                 return true;
+            }
+            else {
+                return false
             }
         }
     }
