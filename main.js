@@ -29,8 +29,8 @@ $(document).ready(function () {
     function validar(usu, contra) {
         for (let elementos in usuarios.correo) {
             if (usuarios.correo[elementos] === usu && contra === usuarios.contra[elementos]) return true;
-            else return false
         }
+        return false
     }
 
     $('.register').submit((event) => {
