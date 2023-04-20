@@ -20,7 +20,7 @@ $(document).ready(function () {
         let pas = document.querySelector('.Lpass').value;
 
         if (validar(mai, pas)) $('.icon-pdf').css('visibility', 'visible');
-        else alert("El mail o la contraseña no son erroneos")
+        else alert("El mail o la contraseña son erroneos");
 
         const enviar = [{ mai, pas }];
         console.log(enviar);
