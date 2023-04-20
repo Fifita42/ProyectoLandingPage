@@ -1,10 +1,10 @@
-$(document).ready(function(){
+$(document).ready(function () {
     const wrapper = '.wrapper';
     const btnPopup = '.btnLogin-popup';
     const iconClose = '.icon-close';
     const contenido = '.contenido';
     const contacto = '.llamar';
-    let ID = 2;
+    let ID = 1;
     //usuarios precargados para la pagina
     let usuarios = {
         correo: ['juan@gmail.com','jose@gmail.com'],
@@ -12,14 +12,13 @@ $(document).ready(function(){
         uss:['juan','jose'],
         id:[0,1]
     }
-   
-    //al hacer click en el formulario de login activa esta seccion para verificar los datos y loguearse
-    $('.login').submit((event)=> {
+
+    $('.login').submit((event) => {
         event.preventDefault();
         let mai = document.querySelector('.Lemail').value;
         let pas = document.querySelector('.Lpass').value;
-        if(validar(mai,pas)){
-            $('.icon-pdf').css('visibility','visible');
+        if (validar(mai, pas)) {
+            $('.icon-pdf').css('visibility', 'visible');
             console.log("hola");
             
         }
@@ -28,22 +27,21 @@ $(document).ready(function(){
             mai,
             pas
         }];
-        // let enviar = [mai,pas];
-
         console.log(enviar);
     });
 
-    //esta funcion comprueba que los datos ingresados coincidan con los datos de la base
-    function validar(usu,contra){
-        for(let elementos in usuarios.correo){
-            if(usuarios.correo[elementos]===usu&&contra===usuarios.contra[elementos]){
+    
+
+
+    function validar(usu, contra) {
+        for (let elementos in usuarios.correo) {
+            if (usuarios.correo[elementos] === usu && contra === usuarios.contra[elementos]) {
                 return true;
             }
         }
     }
-
-    //al hacer click en el formulario de registro esta seccion carga un nuevo usuario
-    $('.register').submit((event)=> {
+    
+    $('.register').submit((event) => {
         event.preventDefault();
         let Ncorreo = document.querySelector('.Ncorreo').value;
         let Npass = document.querySelector('.Npass').value;
@@ -64,50 +62,43 @@ $(document).ready(function(){
         $(wrapper).toggleClass('active');
     });
 
-    //boton de registrar o login, es para mostrar uno de los dos formularios
-    $('.login-register p span').click(()=> {
+    $('.login-register p span').click(() => {
         $(wrapper).toggleClass('active');
     });
 
-    //mostrar los formularios
-    $(btnPopup).click(()=> {
-        $(wrapper).addClass('active-popup');
-        $(wrapper).removeClass('active contacto resumen');
-        $(contenido).addClass('active');
+    $(btnPopup).click(() => {
+        $(wrapper).toggleClass('active-popup');
+        $(wrapper).removeClass('active');
+        $(contenido).toggleClass('active');
     });
-    
-    //cerrar los formularios
-    $(iconClose).click(()=> {
+
+    $(iconClose).click(() => {
         $(wrapper).removeClass('active-popup active contacto resumen');
         $(contenido).removeClass('active contacto');
         $('input').val(null);
-        $('textarea').val(null);
     });
 
-    //mostrar el area de contacto
-    $(contacto).click(()=> {
+    $(contacto).click(() => {
         $(wrapper).addClass('active-popup');
-        $(wrapper).addClass('contacto');
+        $(wrapper).toggleClass('contacto');
         $(wrapper).removeClass('active resumen');
         $(contenido).addClass('active');
     });
 
-
-    //alargar el alto del textarea del formulario de contacto automaticamente
     var textarea = document.getElementById("message");
-    textarea.addEventListener("input", function() {
-      this.style.height = "auto";
-      this.style.height = this.scrollHeight + "px";
+    textarea.addEventListener("input", function () {
+        this.style.height = "auto";
+        this.style.height = this.scrollHeight + "px";
     });
 
-    //verificar los datos ingresados en el formulario de contacto
-    $('.btnContacto').click(()=>{
-        const phone =  document.getElementById('phone').value.trim();
+    $('.btnContacto').click(() => 
+    {
+        const phone = document.getElementById('phone').value.trim();
         const message = document.getElementById('message').value.trim();
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
 
-        if(name === ''){
+        if (name === '') {
             alert('Por favor, ingrese un nombre válido');
             document.getElementById('name').focus();
             return;
@@ -126,9 +117,7 @@ $(document).ready(function(){
             document.getElementById('message').focus();
             return;
         }
-        else
-        {
-            //agregar los datos del contacto al formulario de resumen
+        else {
             document.getElementById('nameR').innerHTML = name;
             document.getElementById('phoneR').innerHTML = phone;
             document.getElementById('emailR').innerHTML = email;
@@ -143,45 +132,45 @@ $(document).ready(function(){
             let data = [document.getElementById('nameR').innerHTML,document.getElementById('phoneR').innerHTML,document.getElementById('emailR').innerHTML,document.getElementById('messageR').value];
             console.log(data);
      });
+
         function isValidPhone(phone) {
             const re = /^\d{10}$/;
             return re.test(phone);
-       }
+        }
     });
-
 
     //imprimir
     const boton = '.icon-pdf';
-    let direccionImpresion = ($(window).width()>1215)?"landscape":"portrait";
-    $(boton).click(()=>{
+    let direccionImpresion = ($(window).width() > 1215) ? "landscape" : "portrait";
+    $(boton).click(() => {
         $('.contenido').addClass('ocultar');
         $('main').addClass("imprimir");
         const $elementoParaPDF = document.querySelector('main');
         html2pdf()
-        .set({
-            margin: 1,
-            filename: 'ResumenDeContacto.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 0.98
-            },
-            html2canvas: {
-                scale: 3,
-                letterRendering: true,
-            },
-            jsPDF: {
-                unit: "in",
-                format: "a3",
-                orientation: `${direccionImpresion}`
-            }
-        })
-        .from($elementoParaPDF)
-        .save()
-        .catch(err=>console.log(err))
-        .finally()
-        .then(()=>{
-            $("main").removeClass("imprimir");
-            $(".contenido").removeClass("ocultar");
-        });
+            .set({
+                margin: 1,
+                filename: 'ResumenDeContacto.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 3,
+                    letterRendering: true,
+                },
+                jsPDF: {
+                    unit: "in",
+                    format: "a3",
+                    orientation: `${direccionImpresion}`
+                }
+            })
+            .from($elementoParaPDF)
+            .save()
+            .catch(err => console.log(err))
+            .finally()
+            .then(() => {
+                $("main").removeClass("imprimir");
+                $(".contenido").removeClass("ocultar");
+            });
     });
 });
